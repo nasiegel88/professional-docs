@@ -1,0 +1,5 @@
+name: professional
+channels:
+ - conda-forge
+dependencies:
+ - texlive-core
