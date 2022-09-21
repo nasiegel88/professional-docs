@@ -7,3 +7,5 @@ dependencies:
  - r-kableextra
  - r-rmarkdown
  - r-bookdown
+ - r-extrafont
+ - r-extrafontdb
