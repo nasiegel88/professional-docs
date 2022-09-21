@@ -6,10 +6,14 @@
 .subversion/
 bin/
 .local/
+*.log
 
 resume/*.log
 resume/*.synctex.gz
+
 biosketch/*.log
 biosketch/*synctex.gz
 biosketch/*.ttf
+
+fonts/*.Identifier
  
