@@ -9,3 +9,4 @@ dependencies:
  - r-bookdown
  - r-extrafont
  - r-extrafontdb
+ - r-devtools
