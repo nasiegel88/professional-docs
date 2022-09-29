@@ -11,10 +11,10 @@ dependencies:
  - r-devtools
  - r-rcpp
  - r-rttf2pt1=1.3.8
- - r-httpuv #
- - r-promises #
- - r-later #
- - r-codetools #
- - libgcc-ng #
- - ncurses #
+#  - r-httpuv #
+#  - r-promises #
+#  - r-later #
+#  - r-codetools #
+#  - libgcc-ng #
+#  - ncurses #
  - fonts-conda-forge
