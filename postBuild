@@ -3,12 +3,17 @@
 # Stop on fail!
 set -e
 
-# Load library
-Rscript -e "library('devtools')" 
-Rscript -e "library('extrafont')"
+# Install biosketch packages 
+Rscript - <<'EOF'
+  library('devtools')
+  library('extrafont')
+  ttf_import(paths = '~/fonts', recursive = TRUE, pattern = NULL)
+  biosketch_pkgs <- list('microtype', 'tabu', 'ulem', 'enumitem', 'titlesec')
+  lapply(biosketch_pkgs, function (x) {
+    tinytex::parse_install(text=paste('! LaTeX Error: File',
+                                      paste0("`", x, ".sty'"),
+                                      'not found.'))
+  })
+EOF
 
-# Install GitHub packages
-Rscript -e "remotes::install_version('Rttf2pt1', version = '1.3.8')"
-
-# Build commands
-Rscript -e "ttf_import(paths = '~/fonts', recursive = TRUE, pattern = NULL)"
+cp -r fonts/* /srv/conda/envs/notebook/fonts

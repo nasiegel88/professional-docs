@@ -6,15 +6,13 @@ if (!tinytex::is_tinytex()) tinytex::install_tinytex(force = TRUE)
 
 dir.create('bin', showWarnings = FALSE)
 
-# Install biosketch packages
-biosketch_pkgs <- list(
-  
-  'microtype', 'tabu', 'ulem', 'enumitem', 'titlesec'
-)
+library('devtools')
+library('extrafont')
 
-lapply(biosketch_pkgs, function (x) {
-  tinytex::parse_install(
-    text = 
-      paste("! LaTeX Error: File", paste0("`", x, "'.sty'"), "not found.")
-  )
-})
+ttf_import(paths = '~/fonts', recursive = TRUE, pattern = NULL)
+
+conda = '/srv/conda/envs/notebook/fonts'
+
+font_import(paths = conda , prompt = FALSE)
+
+loadfonts()

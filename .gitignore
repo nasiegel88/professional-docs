@@ -1,3 +1,4 @@
+# Build
 .TinyTeX/
 .config/
 .ipynb_checkpoints/
@@ -7,13 +8,16 @@
 bin/
 .local/
 *.log
+.conda/
 
+# Fonts
+fonts/*.Identifier
+
+# Resume
 resume/*.log
 resume/*.synctex.gz
 
+# Biosketch
 biosketch/*.log
 biosketch/*synctex.gz
 biosketch/*.ttf
-
-fonts/*.Identifier
- 
