@@ -15,4 +15,4 @@ conda = '/srv/conda/envs/notebook/fonts'
 
 font_import(paths = conda , prompt = FALSE)
 
-loadfonts()
+loadfonts(quiet = TRUE)
