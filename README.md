@@ -1,7 +1,7 @@
 # My professional documents
 
 ## 1. [Resume](https://github.com/nasiegel88/professional-docs/raw/main/_resume/my_resume.pdf)
-## 2. [Biosketch](https://github.com/nasiegel88/professional-docs/blob/main/_biosketch/my_nih-biosketch.pdf)
+## 2. [Biosketch](https://github.com/nasiegel88/professional-docs/raw/main/_biosketch/my_nih-biosketch.pdf)
 
 ## Build documents with [Docker](https://www.docker.com/why-docker/)
 ```bash
