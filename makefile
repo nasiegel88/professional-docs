@@ -1,4 +1,10 @@
-all:
-    Rscript -e "setwd('resume')"  -e "tinytex::pdflatex(commandArgs(trailingOnly = TRUE)[1])" my_resume.tex
+all: _biosketch/my_nih-biosketch.pdf _resume/my_resume.pdf
 
-    Rscript -e "setwd('biosketch')"  -e "tinytex::pdflatex(commandArgs(trailingOnly = TRUE)[1])" my_nih-biosketch.tex
+_biosketch/%.pdf: _biosketch/%.tex
+	cd $(<D);Rscript -e "tinytex::xelatex(commandArgs(trailingOnly = TRUE)[1])" $(<F)
+
+_resume/%.pdf: _resume/%.tex
+	cd $(<D);Rscript -e "tinytex::pdflatex(commandArgs(trailingOnly = TRUE)[1])" $(<F)
+
+clean:
+	rm _*/*.pdf --verbose
