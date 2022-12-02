@@ -17,4 +17,4 @@ mamba activate repo2docker
 ```bash
 jupyter-repo2docker -E . make # Don't forget the period!
 ```
-## Note: Add additional fonts from [Microsoft](https://learn.microsoft.com/en-us/typography/fonts/windows_10_font_list). To the best of my knowledge all font lists from different Windows versions are compatible with Latex.
+## Note: Add additional fonts from [Microsoft](https://learn.microsoft.com/en-us/typography/fonts/windows_10_font_list). To the best of my knowledge all font listed for different Windows versions are compatible with Latex.
