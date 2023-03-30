@@ -1,4 +1,5 @@
 # My professional documents
+[![Build PDF with bookdown](https://github.com/nasiegel88/professional-docs/actions/workflows/ci.yml/badge.svg)](https://github.com/nasiegel88/professional-docs/actions/workflows/ci.yml)
 
 ## 1. [Résumé](https://github.com/nasiegel88/professional-docs/raw/main/_resume/my_resume.pdf)
 ## 2. [Biosketch](https://github.com/nasiegel88/professional-docs/raw/main/_biosketch/my_nih-biosketch.pdf)
