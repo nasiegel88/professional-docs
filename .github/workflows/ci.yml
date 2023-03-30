@@ -1,0 +1,35 @@
+name: Build PDF with bookdown
+
+on: [push]
+        
+jobs:
+  default-shell:
+    name: Build professional document environment
+    runs-on: "ubuntu-18.04"
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mamba-org/provision-with-micromamba@v12
+        with:
+          environment-name: repo2docker
+          environment-file: repo2docker.yml
+      - run: |
+          jupyter-repo2docker \
+            --user-id=1001 \
+            --user-name=jovyan \
+            --volume=/home/jovyan:${{ github.workspace }} \
+            --editable . \
+            make pdf
+      - name: Upload PDF and TEX to GH artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: paper.pdf
+          path: paper/_output/paper.pdf
+      - name: Release
+        uses: fnkr/github-action-ghr@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+            GHR_PATH: paper/_output/paper.pdf
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
