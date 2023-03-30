@@ -21,7 +21,7 @@ jobs:
             --user-name=jovyan \
             --volume=/home/jovyan:${{ github.workspace }} \
             --editable . \
-            make all
+            make _resume/my_resume.pdf
       - name: Upload PDF and TEX to GH artifacts
         uses: actions/upload-artifact@v1
         with:
