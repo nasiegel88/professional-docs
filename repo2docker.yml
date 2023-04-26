@@ -1,5 +1,0 @@
-name: repo2docker
-channels:
- - conda-forge
-dependencies:
- - jupyter-repo2docker=2022.02.0

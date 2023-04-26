@@ -4,8 +4,10 @@ on: [push]
         
 jobs:
   default-shell:
-    name: Build professional document environment
-    runs-on: "ubuntu-18.04"
+    name: Build aggiedown environment
+    runs-on: ubuntu-20.04
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     defaults:
       run:
         shell: bash -l {0}
@@ -13,23 +15,36 @@ jobs:
       - uses: actions/checkout@v2
       - uses: mamba-org/provision-with-micromamba@v12
         with:
-          environment-name: repo2docker
-          environment-file: repo2docker.yml
-      - run: |
-          jupyter-repo2docker \
-            --user-id=1001 \
-            --user-name=jovyan \
-            --volume=/home/jovyan:${{ github.workspace }} \
-            --editable . \
-            make _resume/my_resume.pdf
-      - name: Upload PDF and TEX to GH artifacts
+          environment-name: environment
+          environment-file: environment.yml
+      - name: Install dependencies
+        run: |
+          ./postBuild
+        env:
+          GITHUB_PAT: ${{ secrets.CROSSTABLE_PAT }}
+      - run : make resume # Generate manuscript PDF document
+        name: Build PDF
+      - name: Upload PDF to GH artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: paper.pdf
+          name: my_resume.pdf
           path: _resume/my_resume.pdf
       - name: Release
         uses: fnkr/github-action-ghr@v1
         if: startsWith(github.ref, 'refs/tags/')
         env:
-            GHR_PATH: _resume/my_resume.pdf
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHR_PATH: _resume/my_resume.pdf
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run : make biosketch 
+        name: Build PDF
+      - name: Upload PDF to GH artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: my_nih-biosketch.pdf
+          path: _biosketch/my_nih-biosketch.pdf
+      - name: Release
+        uses: fnkr/github-action-ghr@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GHR_PATH: _biosketch/my_nih-biosketch.pdf
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,3 @@
-all: _biosketch/my_nih-biosketch.pdf _resume/my_resume.pdf
-
 _biosketch/%.pdf: _biosketch/%.tex
 	cd $(<D);Rscript -e "tinytex::xelatex(commandArgs(trailingOnly = TRUE)[1])" $(<F)
 
