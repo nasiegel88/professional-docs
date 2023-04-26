@@ -22,7 +22,7 @@ jobs:
           ./postBuild
         env:
           GITHUB_PAT: ${{ secrets.CROSSTABLE_PAT }}
-      - run : _resume/my_resume.pdf 
+      - run : make _resume/my_resume.pdf 
         name: Build PDF
       - name: Upload PDF to GH artifacts
         uses: actions/upload-artifact@v1
