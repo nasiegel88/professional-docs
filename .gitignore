@@ -16,8 +16,10 @@ fonts/*.Identifier
 # Resume
 resume/*.log
 resume/*.synctex.gz
+resume/*.pdf
 
 # Biosketch
 biosketch/*.log
 biosketch/*synctex.gz
 biosketch/*.ttf
+biosketch/*.pdf
