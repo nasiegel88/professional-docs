@@ -22,7 +22,7 @@ jobs:
           ./postBuild
         env:
           GITHUB_PAT: ${{ secrets.CROSSTABLE_PAT }}
-      - run : make resume # Generate manuscript PDF document
+      - run : _resume/my_resume.pdf 
         name: Build PDF
       - name: Upload PDF to GH artifacts
         uses: actions/upload-artifact@v1
@@ -35,7 +35,7 @@ jobs:
         env:
           GHR_PATH: _resume/my_resume.pdf
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run : make biosketch 
+      - run : make _biosketch/my_nih-biosketch.pdf 
         name: Build PDF
       - name: Upload PDF to GH artifacts
         uses: actions/upload-artifact@v1
