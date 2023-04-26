@@ -11,7 +11,7 @@ library('extrafont')
 # if (!is.null(ttf_import_result)) {
 #     conda <- conda_alt
 # }
-#ttf_import(paths = 'fonts', recursive = TRUE, pattern = NULL)
+ttf_import(paths = 'fonts', recursive = TRUE, pattern = NULL)
 
 conda <- "/srv/conda/envs/notebook/fonts"
 conda_alt <- "/home/runner/micromamba/envs/environment/fonts"

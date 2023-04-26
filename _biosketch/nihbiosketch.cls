@@ -31,7 +31,7 @@
 \RequirePackage[letterpaper]{geometry}
 \RequirePackage{ifxetex, ifluatex}   % requires fontspec, so either XeTeX or LuaTeX
 \RequirePackage{fontspec}
-  \setmainfont[Ligatures=TeX]{Arial Regular}
+  \setmainfont[Ligatures=TeX]{fonts/Arial.ttf}
 \RequirePackage{microtype}
 
 \RequirePackage{tabu}
