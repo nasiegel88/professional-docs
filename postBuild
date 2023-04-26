@@ -7,7 +7,14 @@ set -e
 Rscript - <<'EOF'
   library('devtools')
   library('extrafont')
-  ttf_import(paths = '~/fonts', recursive = TRUE, pattern = NULL)
+  conda <- "/srv/conda/envs/notebook/fonts"
+  conda_alt <- "/home/runner/micromamba/envs/environment/fonts"
+  ttf_import_result <- tryCatch(ttf_import(paths = conda,
+   recursive = TRUE, pattern = NULL), error = function(e) NA)
+  if (!is.null(ttf_import_result)) {
+      conda <- conda_alt
+  }
+  ttf_import(paths = conda, recursive = TRUE, pattern = NULL)
   biosketch_pkgs <- list('microtype', 'tabu', 'ulem', 'enumitem', 'titlesec')
   lapply(biosketch_pkgs, function (x) {
     tinytex::parse_install(text=paste('! LaTeX Error: File',
@@ -15,24 +22,3 @@ Rscript - <<'EOF'
                                       'not found.'))
   })
 EOF
-
-# Install fonts
-# set the source and destination paths
-src_path="/home/runner/micromamba/envs/environment/fonts"
-alt_src_path="/srv/conda/envs/notebook/fonts/"
-
-# check if the source path exists after extracting the fonts
-if [ -d "$src_path" ]; then
-    # if it exists, copy the files to the destination path
-    cp -r fonts/* "$src_path"
-else
-    # if it doesn't exist, check if the alternate source path exists
-    if [ -d "$alt_src_path" ]; then
-        # if it exists, copy the files to the destination path
-        cp -r fonts/* "$alt_src_path"
-    else
-        # if neither directory exists, print an error message
-        echo "Error: fonts directory not found"
-        exit 1
-    fi
-fi
