@@ -4,7 +4,7 @@ on: [push]
         
 jobs:
   default-shell:
-    name: Build aggiedown environment
+    name: Build PDF environment
     runs-on: ubuntu-20.04
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
