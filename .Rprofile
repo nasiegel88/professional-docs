@@ -14,22 +14,22 @@ conda_alt = "/home/runner/micromamba/envs/environment/fonts"
 # ttf import
 ttf_import_result <- 
   tryCatch(
-    ttf_import(paths = home, recursive = TRUE, pattern = NULL ), 
+    ttf_import(paths = conda_alt, recursive = TRUE, pattern = NULL ), 
     error = function(e) NA)
 
 if (!is.null(ttf_import_result)) {
-  home <- conda_alt
+  conda_alt <- home
 }
-ttf_import( paths = home, recursive = TRUE, pattern = NULL)
+ttf_import( paths = conda_alt, recursive = TRUE, pattern = NULL)
 
 # Font import
 font_import_result <- 
-  tryCatch(extrafont::font_import(paths = conda, prompt = FALSE),
+  tryCatch(extrafont::font_import(paths = conda_alt, prompt = FALSE),
            error = function(e) NA)
 
 if (!is.null(font_import_result)) {
-    conda <- conda_alt
+  conda_alt <- conda
 }
-extrafont::font_import(paths = conda, prompt = FALSE)
+extrafont::font_import(paths = conda_alt, prompt = FALSE)
 
 loadfonts(quiet = TRUE)
