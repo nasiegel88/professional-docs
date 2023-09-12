@@ -7,14 +7,7 @@ set -e
 Rscript - <<'EOF'
   library('devtools')
   library('extrafont')
-#   conda <- "/srv/conda/envs/notebook/fonts"
-#   conda_alt <- "/home/runner/micromamba/envs/environment/fonts"
-#   ttf_import_result <- tryCatch(ttf_import(paths = conda,
-#    recursive = TRUE, pattern = NULL), error = function(e) NA)
-#   if (!is.null(ttf_import_result)) {
-#       conda <- conda_alt
-#   }
-#  ttf_import(paths = 'fonts', recursive = TRUE, pattern = NULL)
+
   biosketch_pkgs <- list('microtype', 'tabu', 'ulem', 'enumitem', 'titlesec')
   lapply(biosketch_pkgs, function (x) {
     tinytex::parse_install(text=paste('! LaTeX Error: File',
