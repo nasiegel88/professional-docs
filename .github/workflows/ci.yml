@@ -28,7 +28,7 @@ jobs:
       - run : make _resume/my_resume.pdf 
         name: Build PDF
       - name: Upload PDF to GH artifacts
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: my_resume.pdf
           path: _resume/my_resume.pdf
@@ -41,7 +41,7 @@ jobs:
       - run : make _biosketch/my_nih-biosketch.pdf 
         name: Build PDF
       - name: Upload PDF to GH artifacts
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: my_nih-biosketch.pdf
           path: _biosketch/my_nih-biosketch.pdf
