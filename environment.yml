@@ -11,3 +11,5 @@ dependencies:
  - r-devtools
  - fonts-conda-forge=1=0
  - make=4.3=hd18ef5c_1
+ - pdf2image
+ - pillow

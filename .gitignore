@@ -1,3 +1,6 @@
+# Notebook
+.ipython/
+
 # Build
 .TinyTeX/
 .config/
@@ -9,6 +12,7 @@ bin/
 .local/
 *.log
 .conda/
+.cache/
 
 # Fonts
 fonts/*.Identifier
@@ -16,10 +20,10 @@ fonts/*.Identifier
 # Resume
 resume/*.log
 resume/*.synctex.gz
-resume/*.pdf
+# resume/*.pdf
 
 # Biosketch
 biosketch/*.log
 biosketch/*synctex.gz
 biosketch/*.ttf
-biosketch/*.pdf
+# biosketch/*.pdf
