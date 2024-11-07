@@ -13,7 +13,7 @@ jobs:
         shell: bash -l {0}
     steps:
       - uses: actions/checkout@v2
-      - uses: mamba-org/provision-with-micromamba@v12
+      - uses: mamba-org/setup-micromamba@v1
         with:
           environment-name: environment
           environment-file: environment.yml
