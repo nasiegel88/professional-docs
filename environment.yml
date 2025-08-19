@@ -1,3 +1,4 @@
+name: professional-docs
 channels:
  - conda-forge
 dependencies:
