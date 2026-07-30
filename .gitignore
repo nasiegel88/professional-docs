@@ -18,12 +18,14 @@ bin/
 fonts/*.Identifier
 
 # Resume
-resume/*.log
-resume/*.synctex.gz
-# resume/*.pdf
+_resume/*.log
+_resume/*.synctex.gz
+_resume/*.aux
+_resume/*.out
+# _resume/*.pdf
 
 # Biosketch
-biosketch/*.log
-biosketch/*synctex.gz
-biosketch/*.ttf
+_biosketch/*.log
+_biosketch/*synctex.gz
+_biosketch/*.ttf
 # biosketch/*.pdf
